@@ -1,12 +1,24 @@
 html{
     font-size: 62.5%;
 }
+
 body{
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2.8rem;
     background-color: #C0BCB5;
     color: #1A181B;
-    font-size: 2.8rem;
-    text-align: center;
 }
+
+.container{
+    margin:0 auto;
+    width:30%;
+    padding: 2rem ;
+    background-color: #848C8E;
+    box-shadow: 5px 5px 15px;
+}
+
 #counter{
     padding: 2rem;
     font-size: 6rem;
