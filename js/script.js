@@ -2,16 +2,16 @@
 let chrono = 0;
 let timerId = null;
 
-let chronoDom;
 let startBtn;
 let resetBtn;
+let chronoDom;
+
 
 // FUNCTIONS
 function handleStart() {
     if (timerId === null || chrono === 0) {  
-        console.log('start');
         startBtn.disabled = true;
-		resetBtn.disabled = false;
+        resetBtn.disabled = false;     
         timerId = setInterval(() => {
             chrono++;
             chronoDom.innerText = chrono;
@@ -20,30 +20,49 @@ function handleStart() {
 }
 
 function handleReset() {
-    if (timerId !== null) {
-        console.log('reset');
-        startBtn.disabled = false;
-		resetBtn.disabled = true;
-        clearInterval(timerId);
-        chrono = 0;
-        chronoDom.innerText = chrono;
-    }
+   if (timerId !== null) {
+       startBtn.disabled = false;
+       resetBtn.disabled = true;
+      clearInterval(timerId);
+       chrono = 0;
+       chronoDom.innerText = chrono;
+}
 }
 
-// PRINCIPAL CODE
-document.addEventListener('DOMContentLoaded', function() {
-    //console.log('DOM loaded');
+function animationStart(){
+    document.querySelector('.black-hole').classList.add('animSlide');
+    document.querySelector('.container').classList.add('animAttract');
+    setTimeout(() => {
+        document.getElementById('startBtn').classList.add('animFade');
+        document.getElementById('counter').classList.add('animFade');
+    }, 5000);
 
-    chronoDom = document.getElementById('counter');
-    //console.log(chronoDom);
-    
+}
+
+function animationStop() {
+    document.querySelector('.black-hole').classList.remove('animSlide');
+    document.querySelector('.container').classList.remove('animAttract');
+    document.getElementById('startBtn').classList.remove('animFade');
+    document.getElementById('counter').classList.remove('animFade');
+    chrono = 0;
+}
+
+
+
+
+// CODE PRINCIPAL
+document.addEventListener('DOMContentLoaded', function() {
+    //console.log('DOM Loaded !');
+
     startBtn = document.getElementById('startBtn');
-    //console.log(startBtn);
-    
     resetBtn = document.getElementById('resetBtn');
-    //console.log(resetBtn);
+    chronoDom = document.getElementById('counter');
 
     startBtn.addEventListener('click', handleStart);
-
     resetBtn.addEventListener('click', handleReset);
+    
+    startBtn.addEventListener('click', animationStart);
+    resetBtn.addEventListener('click', animationStop);
 });
+
+

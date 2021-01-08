@@ -3,31 +3,102 @@ html{
 }
 
 body{
-    display:flex;
-    flex-direction: column;
-    text-align: center;
     font-size: 2.8rem;
-    background-color: #C0BCB5;
-    color: #1A181B;
+    background-image: url(/chronomètre/img/background-galaxie-lg.jpg);
+}
+
+.black-hole{
+    text-align: center;
+    margin: 5% 0 0 5%;
+    width:20%;
+    height:10px;
+    border-radius: 50%;
+    box-shadow: inset 1px 1px 35px 1px rgba(200,200,200,0.8);
+    background-color: #000;
 }
 
 .container{
-    margin:0 auto;
-    width:30%;
-    padding: 2rem ;
-    background-color: #848C8E;
-    box-shadow: 5px 5px 15px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom:10%;
+    left:5%;
+    right:5%;
+    max-width:100%;
+    color:#fff;
 }
 
 #counter{
-    padding: 2rem;
     font-size: 6rem;
 }
+
 button{
-    padding: 5px 10px;
-    font-size: 2rem; 
-    background-color: #297373;
+    font-size: 5rem; 
+    background-color: transparent;
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 0.2rem;
 }
+
+#resetBtn{
+    position: absolute;
+    top:2%;
+    right:2%;
+    font-size: 2rem;;
+}
+
+
+/* ANIMATIONS */
+
+.animSlide{
+    animation-name: slide;
+    animation-duration: 40s;
+}
+
+.animAttract{
+    animation-name: attract;
+    animation-duration: 25s;
+}
+
+.animFade{
+    animation-name: fade;
+    animation-duration: 25s;
+}
+
+@keyframes slide {
+    from {
+      width: 20%;
+      height: 10px;
+      bottom:10%;
+    }
+  
+    to {
+       width:80%;
+       height:250px;
+    }
+}
+  
+@keyframes fade {
+    from {
+        opacity:1;
+    }
+    
+    to {
+        opacity:0;
+    }
+}
+
+@keyframes attract {
+    from {
+        bottom:10%;
+        left:5%;
+        right:5%;
+    }
+    to {
+        bottom:72%;
+        left:28%;
+        right:50%;
+        }
+    
+}
+
